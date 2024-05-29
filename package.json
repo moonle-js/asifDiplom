@@ -1,0 +1,39 @@
+{
+  "dependencies": {
+    "axios": "^1.7.2",
+    "firebase": "^10.12.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-firebase-hooks": "^5.1.1",
+    "react-router": "^6.23.1",
+    "react-router-dom": "^6.23.1",
+    "react-scripts": "^5.0.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.3"
+  },
+  "name": "asifdiplom",
+  "description": "Diplom Work Of Asif",
+  "version": "1.0.0",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "react-scripts start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
