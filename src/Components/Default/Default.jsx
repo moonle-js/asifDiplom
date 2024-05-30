@@ -7,7 +7,9 @@ export default function Default(){
         <>
             <div className="w-full min-h-[100vh] bg-[#00132D] flex flex-col justify-between items-center">
                 <Header></Header>
-                <Outlet></Outlet>
+                    <main className='w-[80%] min-h-[calc(100vh-300px)] flex items-center justify-center'>
+                        <Outlet></Outlet>
+                    </main>
                 <Footer></Footer>
             </div>
             
