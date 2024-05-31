@@ -15,6 +15,7 @@ export default function Header(){
                                 ['Contact Us', 'contactUs'],
                                 ['Partners', 'partners'],
                                 ['Oil Detect', 'oilDetect'],
+                                ['Reports', 'reports']
                             ].map(([text, url]) => (
                                 <li key={text} className="transition ease-out duration-1000 flex-[2]  items-center hover:bg-[#ffba42]  rounded-[15px] justify-center flex text-[1.1em] font-[600] h-[50%]">
                                     <Link className="w-full h-full flex items-center justify-center" to={url}>{text}</Link> 

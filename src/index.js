@@ -14,6 +14,8 @@ import Equipments from "./Components/Equipments/Equipments";
 import Locations from "./Components/Locations/Locations";
 import OilDetect from "./Components/OilDetect/OilDetect";
 import Partners from "./Components/Partners/Partners";
+import Reports from "./Components/Repors/Reports";
+import AdminPanel from "./Components/AdminPanel/AdminPanel";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"))
 
@@ -49,8 +51,16 @@ var router = createBrowserRouter([
             {
                 path: 'partners',
                 element: <Partners></Partners>
+            },
+            {
+                path: 'reports',
+                element: <Reports></Reports>
             }
-        ]
+        ],
+    },
+    {
+        path: 'admin',
+        element: <AdminPanel></AdminPanel>
     }
 ])
 

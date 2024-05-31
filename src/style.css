@@ -13,3 +13,7 @@
     color: #fff;
     font-family: "Montserrat";
 }
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }

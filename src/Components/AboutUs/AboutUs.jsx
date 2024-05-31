@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ref, get, child } from 'firebase/database'
+import { ref, get, child, onValue } from 'firebase/database'
 import { database } from '../../Firebase/firebase.mjs'
 import { Link } from 'react-router-dom';
 
@@ -11,8 +11,7 @@ export default function AboutUs(){
   useEffect(() => {
     async function goster(){
       try {
-        get(ref(database, 'aboutUs/')).then(
-          response => {
+        onValue(ref(database, 'aboutUs/'),async response => {
               if(response.exists()){
                 setData({...response.val()})
                 setLoading(false)
@@ -53,14 +52,15 @@ export default function AboutUs(){
       <>
           <section className='w-full flex items-center justify-between'>
 
-            <div className='flex items-center justify-center w-[30%] h-[full]'>
-              <p className='flex items-center justify-center w-full h-full text-justify'>
+            <div className='flex items-center justify-center w-[50%] h-[full] bg-[#00377E] min-h-[500px] rounded-[15px] p-[30px]'>
+              <p className='flex flex-col gap-y-[20px] items-center justify-center w-full h-full text-justify'>
+                <h1 className='font-black text-[26px]'>Немного о Нас !</h1>
                 {data.description}
               </p>
             </div>
 
 
-            <div className='flex flex-col items-end gap-y-[20px] w-[60%] h-full'>
+            <div className='flex flex-col items-end gap-y-[20px] w-[40%] h-full'>
 
               <div className='flex flex-row items-center justify-start min-w-[500px] gap-x-[10px] min-h-[75px] bg-[#00377E] rounded-[15px] pl-[20px]' >   
                 <span className='text-[#FFD100] font-[600]'>
