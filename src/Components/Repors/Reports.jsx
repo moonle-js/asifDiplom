@@ -4,13 +4,13 @@ import { database } from "../../Firebase/firebase.mjs"
 
 export  default function Reports(){
 
-    const [dataFromFirebase, setDataFromFirebase] = useState({})
+    const [dataFromFirebase, setDataFromFirebase] = useState([])
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         async function getDetailsAboutRequests(){
             try{
-                onValue(ref(database, 'requests/'), async result => {
+                onValue(ref(database, 'requests'), async result => {
                     if(result.exists()){
                         setDataFromFirebase(result.val())
                         setLoading(false)
@@ -37,18 +37,18 @@ export  default function Reports(){
 
                                 <div className="w-[40%] h-full flex justify-between items-center">
                                     <span>
-                                        {JSON.parse(item).nameOfFilial1}
+                                        {item.nameOfFilial1}
                                     </span>
 
                                     <span>
-                                        {JSON.parse(item).dateSent1}
+                                        {item.dateSent1}
                                     </span>
 
                                 </div>
 
 
                                 <div className="w-[20%] h-[80%] rounded-[15px] border-[2px] border-solid border-[#fff] flex items-center justify-evenly">
-                                    {JSON.parse(item).accepted == true ?  
+                                    {item.accepted == true ?  
                                         <><div className="rounded-[100%] w-[20px] h-[20px] bg-[green]"></div><span>Accepted</span></> : 
                                         <><div className="rounded-[100%] w-[20px] h-[20px] bg-[red]"></div><span>Rejected</span></>}
                                 </div>

@@ -58,7 +58,7 @@ export default function OilDetect(){
 
 
         setIngredients({
-            nameOfFilial1, dateSent1, alkans1, sikloalkans1, aromatic1, smola1, sera1, azot1, kislorod1, metalls1, 'accepted': accepted
+            nameOfFilial1: `${nameOfFilial1}`, dateSent1: `${dateSent1}`, alkans1: `${alkans1}`, sikloalkans1: `${sikloalkans1}`, aromatic1: `${aromatic1}`, smola1: `${smola1}`, sera1: `${sera1}`, azot1: `${azot1}`, kislorod1: `${kislorod1}`, metalls1: `${metalls1}`, accepted: accepted
         })
 
 
@@ -70,7 +70,7 @@ export default function OilDetect(){
         async function gonder(){
             if(ingredients){
                 try{
-                    await set(ref(database, `requests/${v4()}`), JSON.stringify(ingredients))
+                    await set(ref(database, `requests/${v4()}`), ingredients)
          
                      nameOfFilial.current.value = ""
                      dateSent.current.value = ""

@@ -4,6 +4,7 @@ import { database } from "../../Firebase/firebase.mjs";
 import { useEffect, useState } from "react";
 import ContactedUsers from "./ContactedUsers";
 import EquipmentsLis from "./EquipmentsList";
+import OilReports from "./OilReports";
 
 export default function AdminPanel(){
 
@@ -39,6 +40,7 @@ export default function AdminPanel(){
                 <section className="w-[70%] h-full min-h-[800px] rounded-[15px] bg-[#00377E] p-[50px]">
                     <ContactedUsers></ContactedUsers>
                     <EquipmentsLis></EquipmentsLis>
+                    <OilReports></OilReports>
                 </section>
             </main>
         </>
