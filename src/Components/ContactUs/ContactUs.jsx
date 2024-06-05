@@ -36,7 +36,6 @@ export default function ContactUs(){
             setErrorMessage(<ErrorMessage>Mesaj boshdur</ErrorMessage>)
             return
         }
-        alert(uuidv4())
 
             var userCredentials = {
                 'nameOfSender': nameOfSender.current.value,'emailOfSender': emailOfSender.current.value, 'phoneNumberOfSender': phoneNumberOfSender.current.value, 'messageOfSender': messageOfSender.current.value

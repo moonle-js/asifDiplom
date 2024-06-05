@@ -52,7 +52,7 @@ export default function Equipments(){
                                 {
                                     categories.map((item) => {
                                         return (
-                                            <option value={item} className=" flex items-center justify-center text-center text-[20px] p-[10px] w-[100%] leading-[40px] min-h-[20px] cursor-pointer" key={item}>
+                                            <option value={item} className="flex items-center justify-center text-center text-[20px] p-[10px] w-[100%] leading-[40px] min-h-[20px] cursor-pointer" key={item}>
                                                 {item}
                                             </option>
                                         )
@@ -77,7 +77,7 @@ export default function Equipments(){
                     {console.log(Object.entries(shownElements))}
 
                 <article className="bg-[#ffba42] w-[90%] min-h-[300px] rounded-[15px] p-[10px] flex flex-col items-center justify-start gap-y-[20px]">
-                    {Object.entries(shownElements).map(([index, item]) => <Equipment key={index} itemQuality={item.quality} itemName={item.name}></Equipment>)}
+                    {Object.entries(shownElements).map(([index, item]) => <Equipment key={index} itemDateAdded={item.dateAdded} itemQuality={item.quality} itemName={item.name}></Equipment>)}
                 </article>
 
             </section>

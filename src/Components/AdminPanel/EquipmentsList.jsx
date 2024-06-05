@@ -30,7 +30,9 @@ export default function EquipmentsLis(){
 
 
     const addEquipmentToFirebase = useCallback(() => {
-        set(ref(database, `equipments/${v4()}`), {name: equipmentsName.current.value, category: categoryOfEquipment.current.value, quality: 100})
+        let currentDate = Date.now()
+        console.log(currentDate)
+        set(ref(database, `equipments/${v4()}`), {name: equipmentsName.current.value, category: categoryOfEquipment.current.value, quality: 100, dateAdded: currentDate})
     }, [equipmentsName, categoryOfEquipment]) 
 
     return(
@@ -88,10 +90,10 @@ export default function EquipmentsLis(){
             <div className="flex flex-col itesm-center justify-start gap-y-[20px] w-full h-full">
                 {
                     Object.entries(shownElements).map(([index, item]) => {
-                        let cislo = `${item.quality}`;
-                        let bgColor = ''
+                        let cislo = (Date.now() - Number(item.dateAdded));
+                        let bgColor = '';
 
-                        item.quality > 50 ? bgColor = 'green' : bgColor = "red";
+                        (100 - cislo/1000000) > 50 ? bgColor = 'green' : bgColor = "red";
 
                         return (
                             <div key={index} className="flex items-center justify-between gap-x-[100px] bg-[#00377E] w-full min-h-[50px] rounded-[15px] pl-[15px] pr-[15px]">
@@ -103,7 +105,7 @@ export default function EquipmentsLis(){
                                     {item.category}
                                 </p>
                                 
-                                <p style={{width: `${cislo}px`, backgroundColor: bgColor, height: "20px", borderRadius: '25px', marginLeft: "auto"}}>
+                                <p style={{width: `${100 - (cislo/1000000)}px`, backgroundColor: bgColor, height: "20px", borderRadius: '25px', marginLeft: "auto"}}>
                                     
                                 </p>
                             </div>
