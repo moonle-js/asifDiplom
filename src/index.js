@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client"
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, createHashRouter } from "react-router-dom";
 
 // Styles
 import "./style.css"
@@ -19,7 +19,7 @@ import AdminPanel from "./Components/AdminPanel/AdminPanel";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"))
 
-var router = createBrowserRouter([
+var router = createHashRouter([
     {
         path: '/',
         element: <Default></Default>,
