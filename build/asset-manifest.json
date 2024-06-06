@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/asifDiplom/static/css/main.06b2c1cc.css",
-    "main.js": "/asifDiplom/static/js/main.c40c6225.js",
+    "main.js": "/asifDiplom/static/js/main.c478bf12.js",
     "index.html": "/asifDiplom/index.html",
     "main.06b2c1cc.css.map": "/asifDiplom/static/css/main.06b2c1cc.css.map",
-    "main.c40c6225.js.map": "/asifDiplom/static/js/main.c40c6225.js.map"
+    "main.c478bf12.js.map": "/asifDiplom/static/js/main.c478bf12.js.map"
   },
   "entrypoints": [
     "static/css/main.06b2c1cc.css",
-    "static/js/main.c40c6225.js"
+    "static/js/main.c478bf12.js"
   ]
 }
