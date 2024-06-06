@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/asifDiplom/static/css/main.06b2c1cc.css",
+    "main.js": "/asifDiplom/static/js/main.c40c6225.js",
+    "index.html": "/asifDiplom/index.html",
+    "main.06b2c1cc.css.map": "/asifDiplom/static/css/main.06b2c1cc.css.map",
+    "main.c40c6225.js.map": "/asifDiplom/static/js/main.c40c6225.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.06b2c1cc.css",
+    "static/js/main.c40c6225.js"
+  ]
+}
