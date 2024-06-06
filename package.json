@@ -11,15 +11,20 @@
     "uuid": "^9.0.1"
   },
   "devDependencies": {
+    "gh-pages": "^6.1.1",
     "tailwindcss": "^3.4.3"
   },
   "name": "asifdiplom",
   "description": "Diplom Work Of Asif",
   "version": "1.0.0",
   "main": "tailwind.config.js",
+  "homepage": "https://moonle-js.github.io/asifDiplom",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "react-scripts start"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [],
   "author": "",
