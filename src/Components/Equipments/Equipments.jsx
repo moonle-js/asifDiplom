@@ -7,8 +7,8 @@ export default function Equipments(){
 
     const [categories, setCategories] = useState([])
     const requestedEquipments = useRef()
+    const [shownRequestedEquipments, setShownRequestedEquipments] = useState(false)
     const [shownElements, setShownElements] = useState([])
-    const [noData, setNoData] = useState(false)
 
     useEffect(() => {
         async function getCategoriesFromFirebase(){
@@ -23,24 +23,11 @@ export default function Equipments(){
                     setShownElements(response.val())
                 }
             })
-
         }
 
         getCategoriesFromFirebase()
     }, [])
 
-    const showRequestedEquipments = useCallback((category) => {
-        get(ref(database, 'equipments/')).then(result => {
-            if(result.exists()){
-                for(let i in result.val()){
-                    if(result.val()[i].category == category){
-                        setShownElements(...shownElements, result.val())
-                        console.log('tapdim')
-                    }
-                }
-            }
-        })
-    }, [requestedEquipments])
 
     return(
         <>
@@ -50,7 +37,7 @@ export default function Equipments(){
                     <div className="flex items-center justify-start w-[60%] h-[100%]">
                             <select ref={requestedEquipments} className="text-[#fff] relative bg-[#00377E] flex flex-row items-center justify-center rounded-[15px] w-[100%] h-[60%] text-center content-center cursor-pointer">
                                 {
-                                    categories.map((item) => {
+                                    Object.entries(categories).map(([index, item]) => {
                                         return (
                                             <option value={item} className="flex items-center justify-center text-center text-[20px] p-[10px] w-[100%] leading-[40px] min-h-[20px] cursor-pointer" key={item}>
                                                 {item}
@@ -64,9 +51,9 @@ export default function Equipments(){
                     <button 
                     onClick={ (e) =>{
                         e.preventDefault()
-                        console.log('basildi')
-                        setShownElements([])
-                        showRequestedEquipments(requestedEquipments.current.value)
+                        setShownRequestedEquipments(requestedEquipments.current.value)
+
+
                     }
                     }
                     className="bg-[#ffba42] rounded-[15px] w-[20%] h-[60%] font-black">
@@ -74,10 +61,26 @@ export default function Equipments(){
                     </button>
                 </form>
 
-                    {console.log(Object.entries(shownElements))}
+
 
                 <article className="bg-[#ffba42] w-[90%] min-h-[300px] rounded-[15px] p-[10px] flex flex-col items-center justify-start gap-y-[20px]">
-                    {Object.entries(shownElements).map(([index, item]) => <Equipment key={index} itemDateAdded={item.dateAdded} itemQuality={item.quality} itemName={item.name}></Equipment>)}
+                    {
+                    
+                        shownRequestedEquipments ? 
+                        Object.entries(shownElements).map(([index, item]) => {
+                            if(item.category == requestedEquipments.current.value){
+                                return <Equipment key={index} itemDateAdded={item.dateAdded} itemQuality={item.quality} itemName={item.name}></Equipment>
+                            }
+
+                        })
+                        : 
+                        Object.entries(shownElements).map(([index, item]) => {
+
+                            return <Equipment key={index} itemDateAdded={item.dateAdded} itemQuality={item.quality} itemName={item.name}></Equipment>
+
+                        })
+                    
+                    }
                 </article>
 
             </section>

@@ -70,7 +70,8 @@ export default function OilDetect(){
         async function gonder(){
             if(ingredients){
                 try{
-                    await set(ref(database, `requests/${v4()}`), ingredients)
+                    let id = v4();
+                    await set(ref(database, `requests/${id}`), {...ingredients, idOfRequest: id})
          
                      nameOfFilial.current.value = ""
                      dateSent.current.value = ""

@@ -1,7 +1,8 @@
 import { useRef, useState, useEffect, useCallback } from "react"
-import { get, onValue, ref, set } from "firebase/database"
+import { get, onValue, ref, remove, set } from "firebase/database"
 import { database } from "../../Firebase/firebase.mjs"
 import { v4} from 'uuid'
+import { useNavigate } from "react-router"
 
 export default function EquipmentsLis(){
     const [categories, setCategories] = useState([])
@@ -28,12 +29,17 @@ export default function EquipmentsLis(){
         getCategoriesFromFirebase()
     }, [])
 
+    const navigateTo = useNavigate()
 
     const addEquipmentToFirebase = useCallback(() => {
         let currentDate = Date.now()
-        console.log(currentDate)
-        set(ref(database, `equipments/${v4()}`), {name: equipmentsName.current.value, category: categoryOfEquipment.current.value, quality: 100, dateAdded: currentDate})
+        let id = v4()
+        set(ref(database, `equipments/${id}`), {elementId: id,name: equipmentsName.current.value, category: categoryOfEquipment.current.value, quality: 100, dateAdded: currentDate})
     }, [equipmentsName, categoryOfEquipment]) 
+
+    const deleteEquipment = useCallback((id) => {
+        remove(ref(database, `equipments/${id}`))
+    }, [shownElements])
 
     return(
         <div className="flex flex-col mt-[20px] bg-[#00132D] rounded-[15px] min-h-[800px] p-[20px] items-start justify-start gap-y-[30px]">
@@ -64,7 +70,7 @@ export default function EquipmentsLis(){
                     className="w-[350px] h-[40px] rounded-[15px] bg-[#00132D] text-[#fff] font-[600] pl-[20px] cursor-pointer"
                     >
                         {
-                            categories.map((item) => {
+                            Object.entries(categories).map(([index, item]) => {
                                 return (
                                     <option value={item} className=" flex items-center justify-center text-center text-[20px] p-[10px] w-[100%] leading-[40px] min-h-[20px] cursor-pointer" key={item}>
                                         {item}
@@ -75,16 +81,29 @@ export default function EquipmentsLis(){
                     </select>
                 </div>
 
-                <button className="self-center bg-[#FFD100] text-[#00132D] rounded-[15px] h-[50px] pl-[10px] pr-[10px] font-[600] mt-[30px]"
-                    onClick={(e) => {
-                        e.preventDefault()
-                        addEquipmentToFirebase();
-                        equipmentsName.current.value = ""
-                    }}
-                >
-                    Add Equipment
-                </button>
+                <div className="flex w-full items-center h-auto justify-evenly mt-[20px]">
+                    <button className=" bg-[#FFD100] text-[#00132D] rounded-[15px] h-[50px] pl-[10px] pr-[10px] font-[600]"
+                        onClick={(e) => {
+                            e.preventDefault()
+                            if(equipmentsName.current.value.length > 5){
+                                addEquipmentToFirebase();
+                                equipmentsName.current.value = ""
+                            }else{
+                                alert('Please fill the name prompt correctly')
+                            }
+                        }}
+                    >
+                        Add Equipment
+                    </button>
 
+                    <button 
+                        onClick={() => navigateTo('/addCategory')}
+                        className=" bg-[#FFD100] text-[#00132D] rounded-[15px] h-[50px] pl-[10px] pr-[10px] font-[600]"
+                    >
+                        Add Category
+                    </button>
+                </div>
+                
             </form>
 
             <div className="flex flex-col itesm-center justify-start gap-y-[20px] w-full h-full">
@@ -92,8 +111,9 @@ export default function EquipmentsLis(){
                     Object.entries(shownElements).map(([index, item]) => {
                         let cislo = (Date.now() - Number(item.dateAdded));
                         let bgColor = '';
+                        var qualityCurrent = 100 - cislo/10000000
 
-                        (100 - cislo/1000000) > 50 ? bgColor = 'green' : bgColor = "red";
+                        qualityCurrent > 50 ? bgColor = 'green' : bgColor = "red";
 
                         return (
                             <div key={index} className="flex items-center justify-between gap-x-[100px] bg-[#00377E] w-full min-h-[50px] rounded-[15px] pl-[15px] pr-[15px]">
@@ -105,9 +125,15 @@ export default function EquipmentsLis(){
                                     {item.category}
                                 </p>
                                 
-                                <p style={{width: `${100 - (cislo/1000000)}px`, backgroundColor: bgColor, height: "20px", borderRadius: '25px', marginLeft: "auto"}}>
+                                <p style={{width: `${qualityCurrent}px`, backgroundColor: bgColor, height: "20px", borderRadius: '25px', marginLeft: "auto"}}>
                                     
                                 </p>
+
+                                <button className="text-[#FFD100]" onClick={() => {
+                                    deleteEquipment(index)
+                                }}>
+                                    Delete
+                                </button>
                             </div>
                         )
                     }

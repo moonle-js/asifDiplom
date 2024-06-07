@@ -1,8 +1,6 @@
 export default function Equipment({itemName, itemDateAdded, itemQuality}){
-
     let cislo = (Date.now() - Number(itemDateAdded));
     let bgColor = '';
-
     (100 - cislo/1000000) > 50 ? bgColor = 'green' : bgColor = "red";
 
     return(
@@ -10,6 +8,9 @@ export default function Equipment({itemName, itemDateAdded, itemQuality}){
             <p className="min-w-[150px] w-[30%]">
                 {itemName}
             </p>
+            {
+                
+            }
             
             <p style={{width: `${100 - (cislo/1000000)}px`, backgroundColor: bgColor, height: "20px", borderRadius: '25px', marginLeft: "auto"}}>
                     
