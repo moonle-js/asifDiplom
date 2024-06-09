@@ -35,15 +35,15 @@ export default function AboutUs(){
   if(loading){
     return (
       <>
-        <h1>
+        <span>
           Loading
-        </h1>
+        </span>
       </>
     )
   }else if (error){
     return (
       <>
-        <h1>Catched error</h1>
+        <span>Catched error</span>
         <Link className='w-[150px] h-[50px] bg-[#ffba42] rounded-[15px] flex items-center justify-center' to={'/'}>Go Home</Link>
       </>
     )
@@ -54,7 +54,7 @@ export default function AboutUs(){
 
             <div className='flex items-center justify-center w-[50%] h-[full] bg-[#00377E] min-h-[500px] rounded-[15px] p-[30px]'>
               <p className='flex flex-col gap-y-[20px] items-center justify-center w-full h-full text-justify'>
-                <h1 className='font-black text-[26px]'>Немного о Нас !</h1>
+                <span className='font-black text-[26px]'>Немного о Нас !</span>
                 {data.description}
               </p>
             </div>
@@ -102,7 +102,7 @@ export default function AboutUs(){
                 <span className='text-[#FFD100] font-[600]'>
                   Our location: 
                 </span>
-                <iframe src={data.address} frameborder="0" className='rounded-[15px] ml-auto'></iframe>
+                <iframe src={data.address} frameBorder="0" className='rounded-[15px] ml-auto'></iframe>
               </div>
 
 

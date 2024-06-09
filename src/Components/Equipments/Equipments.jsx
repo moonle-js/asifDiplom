@@ -63,7 +63,7 @@ export default function Equipments(){
 
 
 
-                <article className="bg-[#ffba42] w-[90%] min-h-[300px] rounded-[15px] p-[10px] flex flex-col items-center justify-start gap-y-[20px]">
+                <article className="bg-[#00132D] w-[90%] min-h-[300px] rounded-[15px] p-[10px] pt-[20px] pb-[20px] flex flex-col items-center justify-start gap-y-[20px]">
                     {
                     
                         shownRequestedEquipments ? 

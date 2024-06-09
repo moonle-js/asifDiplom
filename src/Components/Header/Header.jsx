@@ -9,7 +9,7 @@ export default function Header(){
                         
                         {
                             [
-                                ['Logo', '/'],
+                                ['Home', '/'],
                                 ['Equipments', 'equipments'],
                                 ['About Us', 'aboutUs'],
                                 ['Contact Us', 'contactUs'],

@@ -111,7 +111,7 @@ export default function EquipmentsLis(){
                     Object.entries(shownElements).map(([index, item]) => {
                         let cislo = (Date.now() - Number(item.dateAdded));
                         let bgColor = '';
-                        var qualityCurrent = 100 - cislo/10000000
+                        var qualityCurrent = 100 - cislo/100000000
 
                         qualityCurrent > 50 ? bgColor = 'green' : bgColor = "red";
 

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import ContactedUsers from "./ContactedUsers";
 import EquipmentsLis from "./EquipmentsList";
 import OilReports from "./OilReports";
+import Partners from "./Partners";
 
 export default function AdminPanel(){
 
@@ -41,6 +42,7 @@ export default function AdminPanel(){
                     <ContactedUsers></ContactedUsers>
                     <EquipmentsLis></EquipmentsLis>
                     <OilReports></OilReports>
+                    <Partners></Partners>
                 </section>
             </main>
         </>

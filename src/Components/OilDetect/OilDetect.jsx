@@ -123,7 +123,7 @@ export default function OilDetect(){
                         <input
                             ref={dateSent}
                             className="bg-[#00377E] text-[#FFD100] placeholder:text-[#FFD100] pl-[10px] h-[80%] rounded-[15px] w-[60%]"
-                            type="text"
+                            type="date"
                             placeholder="dd/mm/yyyy..."
                             required
                             id="filialsName"
