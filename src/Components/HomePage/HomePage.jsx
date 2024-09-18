@@ -32,8 +32,8 @@ export default function HomePage(){
     // </div>
 
     <section className="w-[80%]  h-[400px] flex items-center justify-between">
-      <img className="w-[auto] h-[400px]" src={image} alt="" />
-      <img className="w-[auto] h-[400px]" src={image1} alt="" />
+      <img className="w-[auto] max-w-[500px] h-[400px]" src={image} alt="" />
+      <img className="w-[auto] h-[400px] max-w-[500px]" src={image1} alt="" />
     </section>
   );
 }

@@ -3,7 +3,7 @@ import { getDatabase } from 'firebase/database';
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAHcVxS20-0xM6-hX-MObrkU8mTKMh5d7w",
+  apiKey: "",
   authDomain: "asifdiplom.firebaseapp.com",
   databaseURL: "https://asifdiplom-default-rtdb.firebaseio.com",
   projectId: "asifdiplom",
