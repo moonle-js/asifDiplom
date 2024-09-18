@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/asifDiplom/static/css/main.e78b0752.css",
-    "main.js": "/asifDiplom/static/js/main.d1e059f0.js",
-    "static/media/logo1.jpg": "/asifDiplom/static/media/logo1.b079a43e38174465374f.jpg",
-    "static/media/logo.jpg": "/asifDiplom/static/media/logo.7b315d0fed0377f18e2a.jpg",
+    "main.css": "/asifDiplom/static/css/main.28f8626c.css",
+    "main.js": "/asifDiplom/static/js/main.a2f45154.js",
+    "static/media/logo1.jpg": "/asifDiplom/static/media/logo1.0be10b45794f5c3837e0.jpg",
+    "static/media/logo.jpg": "/asifDiplom/static/media/logo.622b3cfba78201656e21.jpg",
     "index.html": "/asifDiplom/index.html",
-    "main.e78b0752.css.map": "/asifDiplom/static/css/main.e78b0752.css.map",
-    "main.d1e059f0.js.map": "/asifDiplom/static/js/main.d1e059f0.js.map"
+    "main.28f8626c.css.map": "/asifDiplom/static/css/main.28f8626c.css.map",
+    "main.a2f45154.js.map": "/asifDiplom/static/js/main.a2f45154.js.map"
   },
   "entrypoints": [
-    "static/css/main.e78b0752.css",
-    "static/js/main.d1e059f0.js"
+    "static/css/main.28f8626c.css",
+    "static/js/main.a2f45154.js"
   ]
 }
